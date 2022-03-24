@@ -9,8 +9,7 @@ def multi(a,b):
 
 def div(a, b):
     if b == 0:
-        print("No se puede dividir por 0")
-        return 0
+        return "No se puede dividir por 0"
     else:
         result = a / b
         return "{:6.2f}".format(result)
