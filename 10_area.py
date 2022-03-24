@@ -5,13 +5,13 @@ print("y otra función que calcule el área de un círculo recibiendo el radio d
 
 def triangle(a,b):
     result = (a * b) / 2
-    print("El área del triángulo es:", result)
+    return result
 # ====================
 def circle(a):
     import math
     result = math.pow(a,2)
     result *= math.pi
-    print("El área del círculo es: {:5.2f}" .format(result))
+    return "{:6.2f}".format(result)
 # ====================
 
 print()
@@ -21,12 +21,12 @@ alto = input("Escribir la altura del triángulo: ")
 alto = float(alto)
 base = input("Escribir la base del triángulo: ")
 base = float(base)
-triangle(alto,base)
+print("El área del triángulo es:",triangle(alto,base))
 
 print()
 
 print("Círculo")
 radio = input("Escribir el radio del círculo: ")
 radio = float(radio)
-circle(radio)
+print("El área del círculo es:", circle(radio))
 
