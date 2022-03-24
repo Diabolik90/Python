@@ -5,7 +5,7 @@ print("y otra función que calcule el área de un círculo recibiendo el radio d
 
 def triangle(a,b):
     result = (a * b) / 2
-    return result
+    return "{:6.2f}".format(result)
 # ====================
 def circle(a):
     import math
