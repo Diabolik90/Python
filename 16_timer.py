@@ -1,4 +1,5 @@
 import time
+from clases.time_class import DBK_Time
 
 print("En este segundo ejercicios tendréis que crear un script que nos diga si es la hora de ir a casa.")
 print("Tendréis que hacer uso del modulo time. Necesitaréis la fecha del sistema y poder comprobar la hora.")
@@ -6,42 +7,49 @@ print("En el caso de que sean más de las 7, se mostrará un mensaje y en caso c
 print("haréis una operación para calcular el tiempo que queda de trabajo.")
 print("---------------------------------------------------")
 
-def actualTime(h, m, s):
-    actual = [str(h), str(m), str(s)]
-    result = ':'.join(actual)
-    return 'Son las ' + result
-
-def restTime(h, m, s):
-    if h < 0:
-        return 'Ya es hora de salir!'
-    else:
-        rest = [str(h), str(m), str(s)]
-        result = ':'.join(rest)
-        return 'Tempo restante ' + result
-
-
 print("Calculo del tiempo")
 print()
 
 # Guardo la hora
-tiempo = time.asctime().split()[3].replace(":"," ").split()
+originalTime = DBK_Time(time.asctime().split()[3])
+print(f'Ahora son las {originalTime}')
 
-# Convierto el tipo
-hora = int(tiempo[0])
-min = int(tiempo[1])
-sec = int(tiempo[2])
-
-# Imprimo el resultado
-actual = actualTime(hora, min, sec)
-print(actual)
+#Confirmo la alarma
+alarma = '19:00:00'
+confirm = 0
+while confirm < 1 or confirm > 2:
+    print(f'Horario configurado a las {alarma}')
+    print("1. Si")
+    print("2. No")
+    confirm = input("Confirmas? ")
+    confirm = int(confirm)
 
 # Pregunto a que hora la alarma
-alarma = input("A qué hora quiere salir? ")
-alarma = int(alarma)
-alarma -= 1
+correct = False
+if confirm == 1:
+    correct = True
+while not correct:
+    print()
+    print("A qué hora quiere salir?")
+    alarma = input("Escribir [hh:mm:ss] : ")
+    alarma = str(alarma)
+    if(alarma.count(':') == 2):
+        correct = originalTime.correct(alarma)
+    if(correct == False):
+        print("Digitar correctamente el horario")
 
-# Calculo el tiempo restante
+# Creo la alarma
+myTime = DBK_Time(alarma, True)
+
+# Calcolo el tiempo restante
 print()
-print(restTime(alarma-hora, 59 - min, 60 - sec))
+if(myTime.passed(originalTime)):
+    print("Ya es hora de salir!")
+else:
+    print(f'Tempo restante {myTime.rest(originalTime)}')
+
+
+
+
 
 
