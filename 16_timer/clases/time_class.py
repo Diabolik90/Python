@@ -52,3 +52,15 @@ class DBK_Time:
         b = 60 >= result._min >= 0
         c = 60 >= result._sec >= 0
         return a and b and c
+
+class DBK_Timecontrol:
+
+    def correct(Time):
+        result = DBK_Time(str(Time))
+        a = 24 >= result._hora >= 0
+        b = 60 >= result._min >= 0
+        c = 60 >= result._sec >= 0
+        return a and b and c
+
+    def reverse(text):
+        return text[::-1]

@@ -1,5 +1,5 @@
 import time
-from clases.time_class import DBK_Time
+from clases.time_class import DBK_Time, DBK_Timecontrol as tc
 
 print("En este segundo ejercicios tendréis que crear un script que nos diga si es la hora de ir a casa.")
 print("Tendréis que hacer uso del modulo time. Necesitaréis la fecha del sistema y poder comprobar la hora.")
@@ -33,8 +33,8 @@ while not correct:
     print("A qué hora quiere salir?")
     alarma = input("Escribir [hh:mm:ss] : ")
     alarma = str(alarma)
-    if(alarma.count(':') == 2):
-        correct = originalTime.correct(alarma)
+    if alarma.count(':') == 2 and tc.reverse(alarma).count(':') == 2:
+        correct = tc.correct(alarma)
     if(correct == False):
         print("Digitar correctamente el horario")
     else:
