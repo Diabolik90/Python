@@ -19,7 +19,19 @@ class DBK_Time:
 
     #toString
     def __str__(self):
-        return f'{self._hora}:{self._min}:{self._sec}'
+        if self._hora < 10:
+            hora = '0'+str(self._hora)
+        else:
+            hora = str(self._hora)
+        if self._min < 10:
+            min = '0'+str(self._min)
+        else:
+            min = str(self._min)
+        if self._sec < 10:
+            sec = '0'+str(self._sec)
+        else:
+            sec = str(self._sec)
+        return f'{hora}:{min}:{sec}'
 
     #methods
     def rest(self, Time):
@@ -32,7 +44,7 @@ class DBK_Time:
 
     def passed(self,Time):
         result = DBK_Time(str(Time))
-        return self._hora <= result._hora
+        return self._hora < result._hora
 
     def correct(self,Time):
         result = DBK_Time(str(Time))

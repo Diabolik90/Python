@@ -37,6 +37,8 @@ while not correct:
         correct = originalTime.correct(alarma)
     if(correct == False):
         print("Digitar correctamente el horario")
+    else:
+        print(f'Horario configurado a las {alarma}')
 
 # Creo la alarma
 myTime = DBK_Time(alarma, True)
