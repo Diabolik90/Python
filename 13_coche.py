@@ -22,9 +22,9 @@ class Vehiculo:
         self._ruedas = ruedas
         self._puertas = puertas
 
-    #metodos
-    def toString(self):
-        print("El vehiculo es de color", self._color,", con",self._ruedas,"ruedas y",self._puertas,"puertas")
+    #toString
+    def __str__(self):
+        return f'El vehiculo es de color {self._color}, con {self._ruedas} ruedas y {self._puertas} puertas'
 
 
 class Coche(Vehiculo):
@@ -33,20 +33,19 @@ class Coche(Vehiculo):
     _cilindrada = 0
 
     #constructor
-    def __init__(self, velocidad, cilindrada, color = "red", ruedas = 4, puertas = 5):
+    def __init__(self, velocidad, cilindrada, color = "rojo", ruedas = 4, puertas = 5):
         super().__init__(color, ruedas, puertas)
         self._velocidad = velocidad
         self._cilindrada = cilindrada
 
-    #metodos
-    def toString(self):
-        super().toString()
-        print("El coche tiene una velocidad máxima de", self._velocidad,"y",self._cilindrada,"de cilindrada")
+    #toString
+    def __str__(self):
+        return f'{super().__str__()}. El coche tiene una velocidad máxima de {self._velocidad} y {self._cilindrada} de cilindrada'
 
 print("---------------------------")
 print()
 myCoche = Coche(100, 1200)
-myCoche.toString()
+print(myCoche)
 print()
 otroCoche = Coche(120,2200, "verde",  puertas = "3")
-otroCoche.toString()
+print(otroCoche)
