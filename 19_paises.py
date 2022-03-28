@@ -11,6 +11,9 @@ def main():
     paises = sorted(paises.split(), key=str.lower)
     for i in range(len(paises)):
         paises[i] = paises[i].capitalize()
+    paises = list(set(paises))
+    paises = sorted(paises)
+
 
     print(f'Los paises escritos son:\n{paises}')
 
