@@ -2,7 +2,7 @@
 # Author: Davide P. Fragnito <davidepie90@gmail.com>      #   #  #   #  #  #
 #                                                         #   #  ####   ###
 # Python API (main graphics display)                      #   #  #   #  #  #
-#	                                                      ####   ####   #   #
+#                                                         ####   ####   #   #
 
 import tkinter
 from dbk.dbk_window import DBK_Window as DBK

@@ -2,7 +2,7 @@
 # Author: Davide P. Fragnito <davidepie90@gmail.com>      #   #  #   #  #  #
 #                                                         #   #  ####   ###
 # Python API (main graphics display)                      #   #  #   #  #  #
-#	                                                      ####   ####   #   #
+#                                                         ####   ####   #   #
 
 import sqlite3 as sql
 
